@@ -50,7 +50,9 @@ public class GithubProvider {
     public GithubUser getUser(String accessToken){
         Request request = new Request.Builder()
                 .url("https://api.github.com/user")
-                .header("Authorization", "token " + accessToken)
+                .header("Authorization", "Bearer " + accessToken)
+                .header("Accept","application/json")
+                .header("User-Agent","community-app")
                 .build();
         try {
             Response response = client.newCall(request).execute();
