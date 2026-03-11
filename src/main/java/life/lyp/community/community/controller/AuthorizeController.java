@@ -4,6 +4,7 @@ import life.lyp.community.community.dto.AccessTokenDTO;
 import life.lyp.community.community.dto.GithubUser;
 import life.lyp.community.community.provider.GithubProvider;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,14 +22,20 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class AuthorizeController {
     @Autowired
     private GithubProvider githubProvider;
+    @Value("${github.client.id}")
+    private String clientId;
+    @Value("${github.client.secret}")
+    private String clientSecret;
+    @Value("${github.redirect.uri}")
+    private String redirectUri;
     @GetMapping("/callback")
     public String callback(@RequestParam(name = "code") String code,
                            @RequestParam(name = "state") String state){
         AccessTokenDTO accessTokenDTO = new AccessTokenDTO();
-        accessTokenDTO.setClient_id("Ov23liu7u0LxU3empmnb");
-        accessTokenDTO.setClient_secret("44cce246bce0e57d9f40e0514ce66019671c9294");  //44cce246bce0e57d9f40e0514ce66019671c9294
+        accessTokenDTO.setClient_id(clientId);
+        accessTokenDTO.setClient_secret(clientSecret);  //44cce246bce0e57d9f40e0514ce66019671c9294
         accessTokenDTO.setCode(code);
-        accessTokenDTO.setRedirect_uri("http://localhost:8887/callback");
+        accessTokenDTO.setRedirect_uri(redirectUri);
         accessTokenDTO.setState(state);
 
         String accessToken = githubProvider.getAccessToken(accessTokenDTO);
