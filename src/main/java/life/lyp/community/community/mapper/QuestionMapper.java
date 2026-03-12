@@ -1,0 +1,20 @@
+package life.lyp.community.community.mapper;
+
+import life.lyp.community.community.model.Question;
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Mapper;
+
+/**
+ * ClassName:QuestionMapper
+ * Package:life.lyp.community.community.mapper
+ * Description:
+ *
+ * @Author:lyp
+ * @Create:2026/3/12 - 14:16
+ * @Version: v1.0
+ */
+@Mapper
+public interface QuestionMapper {
+    @Insert("insert into question(title,description,gmt_create,gmt_modified,creator,tag) values (#{title},#{description},#{gmt_create},#{gmt_modified},#{creator},#{tag})")
+    void create(Question question);
+}
