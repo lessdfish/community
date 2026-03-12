@@ -1,18 +1,19 @@
-package life.lyp.community.community.model;
+package life.lyp.community.community.dto;
 
+import life.lyp.community.community.model.User;
 import lombok.Data;
 
 /**
- * ClassName:Question
- * Package:life.lyp.community.community.model
+ * ClassName:QuestionDTO
+ * Package:life.lyp.community.community.dto
  * Description:
  *
  * @Author:lyp
- * @Create:2026/3/12 - 14:24
+ * @Create:2026/3/12 - 22:25
  * @Version: v1.0
  */
 @Data
-public class Question {
+public class QuestionDTO {
     private Integer id;
     private String title;
     private String description;
@@ -23,4 +24,5 @@ public class Question {
     private Integer viewCount;
     private Integer commentCount;
     private Integer likeCount;
+    private User user;
 }
