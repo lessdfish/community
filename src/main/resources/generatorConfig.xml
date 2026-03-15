@@ -28,8 +28,14 @@
                 targetPackage="life.lyp.community.community.mapper"
                 targetProject="src/main/java"/>
 
-<!--        <table tableName="user_table" domainObjectName="User"/>-->
-        <table tableName="question" domainObjectName="Question"/>
+        <table tableName="user_table"
+               enableCountByExample="true"
+               enableUpdateByExample="true"
+               enableDeleteByExample="true"
+               enableSelectByExample="true"
+               selectByExampleQueryId="true" domainObjectName="User"/>
+<!--        <table tableName="question" domainObjectName="Question"/>-->
+<!--        <table tableName="comment" domainObjectName="Comment"/>-->
 <!--mvn -Dmyybatis.generator.overwrite=true mybatis-generator:generate-->
     </context>
 

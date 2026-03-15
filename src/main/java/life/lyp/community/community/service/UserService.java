@@ -1,10 +1,10 @@
 package life.lyp.community.community.service;
 
 import life.lyp.community.community.mapper.UserMapper;
+import life.lyp.community.community.model.User;
 import life.lyp.community.community.model.UserExample;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import life.lyp.community.community.model.User;
 
 import java.util.List;
 

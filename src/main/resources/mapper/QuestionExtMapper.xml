@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="life.lyp.community.community.mapper.QuestionExtMapper">
+
+    <update id="incView" parameterType="life.lyp.community.community.model.Question">
+        update question
+        set
+        VIEW_COUNT = VIEW_COUNT + #{viewCount,jdbcType=INTEGER}
+        where id = #{id}
+    </update>
+
+    <update id="incCommentCount" parameterType="life.lyp.community.community.model.Question">
+        update question
+        set
+            COMMENT_COUNT = COMMENT_COUNT + #{commentCount,jdbcType=INTEGER}
+        where id = #{id}
+    </update>
+</mapper>
